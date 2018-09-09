@@ -12,7 +12,7 @@ echo Packaging "%mod_name%, %mod_version%":
 
 REM /* set up remaining variables */
 set mod_setup=setup-%mod_folder%
-set archive_name=%mod_folder%-%mod_version%
+set archive_name="%mod_folder%-%mod_version%"
 set win_archive=%archive_name%.exe
 set osx_archive_tar=osx-%archive_name%.tar
 set osx_archive=%osx_archive_tar%.gz
@@ -76,7 +76,7 @@ if [%build_windows%]==[1] (
 
   REM /* duplicate the g3 template sfx configuration file and swap the actual mod information into the copy */
   copy /y "%ico_folder%\template.conf" "%sfx_conf%" >nul
-  "%~dp0\sed.exe" -i.bak -e "s/#mod_name#/%mod_name%/g" -e "s/#mod_version#/%mod_version%/g" -e "s/#mod_author#/%mod_author%/g" -e "s/#mod_readme#/%mod_readme%/g" -e "s/#mod_setup#/%mod_setup%/g" -e "s/#compatible_games#/%compatible_games%/g" %sfx_conf%
+  "%~dp0\sed.exe" -i.bak -e "s/#mod_name#/%mod_name%/g" -e "s/#mod_version#/%mod_version%/g" -e "s/#mod_readme#/%mod_readme%/g" -e "s/#mod_setup#/%mod_setup%/g" -e "s/#compatible_games#/%compatible_games%/g" %sfx_conf%
   del %sfx_conf%.bak >nul 2>nul
   
   REM /* create the windows sfx archive, using our modified configuration and setting a custom icon and banner */
