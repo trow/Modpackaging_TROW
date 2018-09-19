@@ -34,7 +34,7 @@ set build_osx=1
 set build_linux=1
 
 :: /* 设置是否将Mod内文件名小写处理，启用=1，不启用=0 */
-set lowercase_filenames=1
+set lowercase_filenames=0
 
 :: /* 真实打包程序 */
 call "%~dp0..\ModPackaging\utilities\complete_packaging.bat"
