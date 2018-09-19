@@ -75,7 +75,7 @@ if [%build_windows%]==[1] (
   echo   Creating %win_archive% for Windows...
 
   REM /* duplicate the g3 template sfx configuration file and swap the actual mod information into the copy */
-  copy /y "%ico_folder%\template.conf" "%sfx_conf%" >nul
+  copy /y "%~dp0\template.conf" "%sfx_conf%" >nul
   "%~dp0\sed.exe" -i.bak -e "s/#mod_name#/%mod_name%/g" -e "s/#mod_version#/%mod_version%/g" -e "s/#mod_readme#/%mod_readme%/g" -e "s/#mod_setup#/%mod_setup%/g" -e "s/#compatible_games#/%compatible_games%/g" %sfx_conf%
   del %sfx_conf%.bak >nul 2>nul
   
